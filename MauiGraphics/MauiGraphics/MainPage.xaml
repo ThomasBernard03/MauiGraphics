@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiGraphics.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                Text="{Binding CustomGraphic.CurrentValue}"
+                HeightRequest="100"
+                FontSize="30"
+                x:Name="MyLabel"/>
+            <GraphicsView
+                x:Name="MyGraph"
+                Margin="50"
+                DragInteraction="MyGraph_DragInteraction"
+                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
