@@ -4,7 +4,8 @@ Ce repository permet de réaliser facilement des graphiques sur la .net Maui.
 
 ## Utilisation
 
-![Screenshot_1653643766](https://user-images.githubusercontent.com/67638928/170672476-ad0162b3-8066-4f60-9c17-5a88e09479df.png)
+![image](https://user-images.githubusercontent.com/67638928/170673424-fda4b694-7c45-4ef5-a448-4675c49a782d.png)
+
 Nous allons reproduire cet exemple
 
 ```XML
@@ -34,21 +35,29 @@ MainPage.xaml
 ```C#
 public MainPage()
 {
-  BindingContext = this;
-  InitializeComponent();
-  LoadGraph();
+    BindingContext = this;
+    InitializeComponent();
+    LoadGraph();
 }
 
 private void LoadGraph(float? selectedX = null)
 {
-  CustomGraphic = new CustomGraphic(_values, selectedX);
-  MyGraph.Drawable = CustomGraphic;
+    CustomGraphic = new CustomGraphic(_values, selectedX);
+    MyGraph.Drawable = CustomGraphic;
 }
 
 private void MyGraph_DragInteraction(object sender, TouchEventArgs e)
 {
-  LoadGraph(e.Touches.FirstOrDefault().X);
+    LoadGraph(e.Touches.FirstOrDefault().X);
 }
+```
+Ce code permet alors de reproduire l'exemple ci-dessus.
+
+![image](https://user-images.githubusercontent.com/67638928/170673251-aef07aac-6608-449b-a9a9-11748cad5c29.png)
+On peut aussi changer la couleur du graphique avec ces paramètres : 
+```C#
+CustomGraphic.PathColor = Colors.Red;
+CustomGraphic.BackgroundColor = Colors.Bisque;
 ```
 
 
