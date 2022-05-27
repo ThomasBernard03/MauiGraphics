@@ -33,22 +33,22 @@ MainPage.xaml
 
 ```C#
 public MainPage()
-    {
-        BindingContext = this;
-        InitializeComponent();
-        LoadGraph();
-    }
+{
+  BindingContext = this;
+  InitializeComponent();
+  LoadGraph();
+}
 
-    private void LoadGraph(float? selectedX = null)
-    {
-        CustomGraphic = new CustomGraphic(_values, selectedX);
-        MyGraph.Drawable = CustomGraphic;
-    }
+private void LoadGraph(float? selectedX = null)
+{
+  CustomGraphic = new CustomGraphic(_values, selectedX);
+  MyGraph.Drawable = CustomGraphic;
+}
 
-    private void MyGraph_DragInteraction(object sender, TouchEventArgs e)
-    {
-        LoadGraph(e.Touches.FirstOrDefault().X);
-    }
+private void MyGraph_DragInteraction(object sender, TouchEventArgs e)
+{
+  LoadGraph(e.Touches.FirstOrDefault().X);
+}
 ```
 
 
