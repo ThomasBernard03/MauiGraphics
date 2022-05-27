@@ -42,7 +42,7 @@ public MainPage()
 
 private void LoadGraph(float? selectedX = null)
 {
-    CustomGraphic = new CustomGraphic(_values, selectedX);
+    CustomGraphic = new CustomGraphic(new List<float>() { 59, 60.4f, 58, 61, 63, 62 }, selectedX);
     MyGraph.Drawable = CustomGraphic;
 }
 
