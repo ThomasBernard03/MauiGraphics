@@ -54,6 +54,7 @@ private void MyGraph_DragInteraction(object sender, TouchEventArgs e)
 Ce code permet alors de reproduire l'exemple ci-dessus.
 
 ![image](https://user-images.githubusercontent.com/67638928/170673251-aef07aac-6608-449b-a9a9-11748cad5c29.png)
+
 On peut aussi changer la couleur du graphique avec ces paramètres : 
 ```C#
 CustomGraphic.PathColor = Colors.Red;
