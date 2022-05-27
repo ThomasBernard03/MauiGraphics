@@ -30,8 +30,7 @@ public partial class MainPage : ContentPage, INotifyPropertyChanged
     private void LoadGraph(float? selectedX = null)
     {
         CustomGraphic = new CustomGraphic(_values, selectedX);
-        CustomGraphic.PathColor = Colors.Red;
-        CustomGraphic.BackgroundColor = Colors.Bisque;
+        CustomGraphic.Unit = "kg";
         MyGraph.Drawable = CustomGraphic;
     }
 

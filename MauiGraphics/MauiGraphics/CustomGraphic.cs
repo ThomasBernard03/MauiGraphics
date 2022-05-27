@@ -7,7 +7,8 @@ namespace MauiGraphics
     {
         #region Properties
         public Color PathColor { get; set; } = new Color(62, 176, 255);
-        public Color BackgroundColor { get; set; } = new Color(139, 216, 255);
+        public Color BackgroundColor { get; set; } = new Color(139, 216, 255, 100);
+        public string Unit { get; set; }
 
 
         #region _currentValue => CurrentValue
@@ -38,11 +39,33 @@ namespace MauiGraphics
             _currentCanvas = canvas;
             _currentDirtyRect = dirtyRect;
 
+
+
+
             DrawPath();
             if (_selectedX != null)
-                DrawDottedLine();
+                DrawCursor();
+
+            DrawHorizontalyMarker(1.5f);
+            DrawHorizontalyMarker(3);
         }
 
+        private void DrawHorizontalyMarker(float ratio = 2)
+        {
+            _currentCanvas.StrokeSize = 2;
+            _currentCanvas.StrokeDashPattern = new float[] { 5, 8 };
+            _currentCanvas.DrawLine(0, _currentDirtyRect.Height / ratio, _currentDirtyRect.Width, _currentDirtyRect.Height / ratio);
+
+            var currentValue = Math.Round((((_currentDirtyRect.Height - _currentDirtyRect.Height / ratio) / (_currentDirtyRect.Height / _values.Max()))), 2).ToString();
+
+            _currentCanvas.FontSize = 18;
+            _currentCanvas.FontColor = PathColor;
+            _currentCanvas.DrawString($"{currentValue}{Unit}", 2, (_currentDirtyRect.Height / ratio) - 5, HorizontalAlignment.Left);
+        }
+
+        /// <summary>
+        /// Draw graphic path
+        /// </summary>
         private void DrawPath()
         {
             _currentCanvas.StrokeColor = PathColor;
@@ -67,7 +90,10 @@ namespace MauiGraphics
             _currentCanvas.DrawPath(_path);
         }
 
-        private void DrawDottedLine()
+        /// <summary>
+        /// Draw verticaly line and cursor
+        /// </summary>
+        private void DrawCursor()
         {
             _currentCanvas.StrokeColor = PathColor;
             _currentCanvas.StrokeSize = 2;
