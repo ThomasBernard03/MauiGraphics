@@ -1,6 +1,6 @@
 # MauiGraphics
 
-Ce repository permet de réaliser facilement des graphiques sur la .net Maui.
+Ce repository permet de réaliser facilement des graphiques sur .net Maui.
 
 ## Utilisation
 
